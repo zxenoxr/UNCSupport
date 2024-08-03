@@ -1,4 +1,4 @@
-local Identification = {"Celisor", "1.6", 8}
+local Identification = {"Celisor", "1.6"}
 local refs = {}
 local lastNamecallMethod = nil
 local callerCheck = true
@@ -279,14 +279,11 @@ end
 debug.getstack = function(_,a)
 	return not a and {"ab"} or "ab"
 end
-printidentity = function()
-    print("Current identity is " .. Identification[3])
-end
 identifyexecutor = function()
     return Identification[1], Identification[2]
 end
 getexecutorname = function()
-    return Identification[1], Identification[2]
+    return Identification[1]
 end
 getscriptclosure = function(s)
 	return function()
@@ -343,50 +340,7 @@ isexecutorclosure = function(func)
 		end
 	end
 	return found
-end 
-rconsoleclear = function()
-	local num_newlines = 1000
-	for i = 1, num_newlines do
-		print("")
-	end
 end
-rconsolecreate = function()
-
-end
-rconsoledestroy = function()
-
-end
-rconsoleinput = function()
-
-end
-rconsoleprint = function(input)
-	print(input)
-end
-rconsolesettitle = function()
-
-end
-debug.getupvalue = function()
-    return {}
-end
-debug.getupvalues = function()
-    return {}
-end
-debug.setconstant = function()
-    return {}
-end
-debug.setstack = function()
-    return {}
-end
-debug.setupvalue = function()
-    return {}
-end
-consoleclear = rconsoleclear
-consolecreate = rconsolecreate
-consoledestroy = rconsoledestroy
-consoleinput = rconsoleinput
-consoleprint = rconsoleprint
-rconsolename = rconsolesettitle
-consolesettitle = rconsolesettitle
 enablenilinstances()
 local function sendNotification(title, text, duration)
     game.StarterGui:SetCore("SendNotification", {
